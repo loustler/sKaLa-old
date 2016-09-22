@@ -7,6 +7,7 @@
 
 # Environment
  - `2.11.8`
+ - `Java 8`
  
 # Goal
  - Scala의 학습
@@ -14,6 +15,7 @@
 # Reference
  - Book
   - FPIS(Functional Programming In Scala) Paul Chiusano, Runar Bjarnason [Book Link](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791185890180&orderClick=LAG&Kc=)
+  - Programming Scala Dean Wampler, Alex Payne [Book Link](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9788968482755&orderClick=LAG&Kc=)
 
  - Tool
   - IntelliJ JetBrains [IDE](https://www.jetbrains.com/idea/)
