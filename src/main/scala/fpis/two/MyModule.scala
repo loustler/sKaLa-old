@@ -1,4 +1,4 @@
-package scala.fpis.two
+package fpis.two
 
 /**
   * object == module
@@ -10,15 +10,14 @@ package scala.fpis.two
   * @since 9/23/16
   */
 object MyModule {
-
   /**
     *
     * @param n (Int type)
     * @return if n < 0 : -n ? n; (Int type)
     */
   def abs(n : Int): Int =
-    if (n < 0) -n
-    else  n
+  if (n < 0) -n
+  else  n
 
   /**
     *
@@ -36,7 +35,6 @@ object MyModule {
     * @param args
     */
   def main(args: Array[String]): Unit = {
-    println(formatAbs(-42));
+    println(formatAbs(-42))
   }
-
 }
