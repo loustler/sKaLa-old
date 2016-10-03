@@ -62,7 +62,32 @@ object MyModule {
       else loop(n-1)+loop(n-2)
     }
 
-    loop(number);
+    loop(number)
+  }
+
+  /**
+    * first higher-order function
+    *
+    * @param n
+    * @return
+    */
+  private def formatFactorial(n: Int) = {
+    val msg = "The factorial of %d is %d."
+    msg.format(n, factorial(n))
+  }
+
+  /**
+    * Use higher-order function
+    *
+    *
+    * @param name String
+    * @param n Int
+    * @param f function | parameter : Int return : Int like : abs, factorial
+    * @return String
+    */
+  def formatResult(name: String, n:Int, f: Int => Int) = {
+    val msg = "the %s of %d is %d"
+    msg.format(name, n, f(n))
   }
 
   /**
@@ -71,8 +96,10 @@ object MyModule {
     * @param args
     */
   def main(args: Array[String]): Unit = {
+    // equal
     println(formatAbs(-42))
-    println(factorial(5))
-    println(fib(5))
+    println(formatResult("absolute value", -42, abs))
+    println(formatFactorial(7))
+    println(formatResult("factorial", 7, factorial))
   }
 }
