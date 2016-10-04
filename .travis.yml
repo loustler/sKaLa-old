@@ -1,0 +1,10 @@
+language: scala
+scala:
+  - 2.10.4
+  - 2.11.8
+jdk:
+  - oraclejdk8
+
+script:
+   - sbt ++$TRAVIS_SCALA_VERSION -Dfile.encoding=UTF8 -J-XX:ReservedCodeCacheSize=256M -J-Xms1024M test
+
