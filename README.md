@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/loustler/scala.svg?branch=develop)](https://travis-ci.org/loustler/scala)
+[![Build Status](https://travis-ci.org/loustler/scala.svg)](https://travis-ci.org/loustler/scala)
 
 
 # Scala
