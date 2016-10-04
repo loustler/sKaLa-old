@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/loustler/scala.svg?branch=develop)](https://travis-ci.org/loustler/scala)
+
+
 # Scala
  - multiparadigm programming language 다중패러다임 프로그래밍 언어 [Wiki](https://ko.wikipedia.org/wiki/다중_패러다임_프로그래밍_언어)
  - JVM 기반언어
