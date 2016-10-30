@@ -114,9 +114,10 @@ object Polymorphism {
     * @tparam C
     * @return A만 인자로 받는 부분적으로 완성된 f가 리턴됨 즉 B를 인자로 넣어주면 되는 함수를 리턴함
     */
-  def curry[A, B, C](f: (A, B)=> C): A => (B => C) =
-//  (a : A) => ((b:B) => f(a,b))
-  (a) => ((b) => f(a,b))
+  def curry[A, B, C](f: (A, B)=> C): A => (B => C) = {
+    //  (a : A) => ((b:B) => f(a,b))
+    (a) => ((b) => f(a,b))
+  }
 
   /**
     * 연습문제 2-4
@@ -134,9 +135,10 @@ object Polymorphism {
     * @tparam C
     * @return
     */
-  def uncurry[A, B, C](f: A => B => C): (A, B) => C =
-//    (a: A, b : B) => f(a)(b)
+  def uncurry[A, B, C](f: A => B => C): (A, B) => C = {
+    //    (a: A, b : B) => f(a)(b)
     (a, B) => f(a)(b)
+  }
 
 
   def main(args: Array[String]): Unit = {
