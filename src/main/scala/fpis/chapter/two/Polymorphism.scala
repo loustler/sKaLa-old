@@ -76,6 +76,69 @@ object Polymorphism {
     loop(0)
   }
 
+  /**
+    * 함수를 리턴
+    * 고차함수의 일종으로 부분 적용(partial application)이라 부르는 작업을 수행함
+    * 이 고차함수는 이미 parameter a를 인자로 받은 함수에 넣어주고 나머지 한 개의 인자는 별도로 받아서 처리할 수 있게 함
+    * 즉, 부분적으로 처리할 수 있는 함수를 일컫음
+    *
+    * @param a
+    * @param f
+    * @tparam A
+    * @tparam B
+    * @tparam C
+    * @return
+    */
+  def partial1[A, B, C](a: A, f: (A,B) => C) : B => C =
+    (b: B) => f(a, b)
+
+  /**
+    * 다형적 함수의 예
+    * @param x
+    * @param y
+    * @tparam T
+    * @return
+    */
+  def dup[T](x: T, y: Int): List[T] =
+  if(y==0)  Nil
+  else x::dup(x, y-1)
+
+  /**
+    * 연습문제 2-3
+    * 위의 this#partial1을 참조하여서 만들어야 됨
+    * 반환형식이 A => (B => C) 이므로 B를 받아서 C를 리턴하는 함수를 A를 통해 리턴하게 해야 됨
+    *
+    * @param f
+    * @tparam A
+    * @tparam B
+    * @tparam C
+    * @return A만 인자로 받는 부분적으로 완성된 f가 리턴됨 즉 B를 인자로 넣어주면 되는 함수를 리턴함
+    */
+  def curry[A, B, C](f: (A, B)=> C): A => (B => C) =
+//  (a : A) => ((b:B) => f(a,b))
+  (a) => ((b) => f(a,b))
+
+  /**
+    * 연습문제 2-4
+    * 위 2-3을 이해해야 됨
+    * 함수를 리턴해서 그것을 실행한다는 개념을 이해해야 됨
+    * reverse를 하는 것
+    * 리턴이 반대로 (A,B) => C 기 때문에 리턴할 때 (A,B)를 인자로 받아서 바로 C를 출력하는 함수를 리턴해야 됨
+    * f:A => B => C는
+    * f(A)를 하면 B => C인 함수를 리턴함
+    * 그래서 추가로 B => C인 함수를 사용해야 (A,B) => C인 효과를 보일 수 있음
+    *
+    * @param f
+    * @tparam A
+    * @tparam B
+    * @tparam C
+    * @return
+    */
+  def uncurry[A, B, C](f: A => B => C): (A, B) => C =
+//    (a: A, b : B) => f(a)(b)
+    (a, B) => f(a)(b)
+
+
   def main(args: Array[String]): Unit = {
     var a = Array[String]("one", "two", "three", "four", "five")
     val b = Array("a", "b", "c", "d")
@@ -84,6 +147,14 @@ object Polymorphism {
     println(findFirst(a, k))
     println(findFirst[String](a, k.equals))
     println(isSorted(b, (x: String, y: String)=> x < y))
+    println(partial1[Int, Int, Int](5, (x: Int, y: Int) => x+y)(6))
+    println(curry((x:Int, y: Int)=> x+y)(6)(7))
+    println(uncurry((x:Int) => (y:Int) => x+y)(6,7))
+
+    println(dup[Int](3,4))
+    println(dup("three",3))
+    println(dup("three",1))
+
 
   }
 }
