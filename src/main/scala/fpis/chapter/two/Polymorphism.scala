@@ -140,6 +140,27 @@ object Polymorphism {
     (a, b) => f(a)(b)
   }
 
+  /**
+    * 연습문제 2-5
+    * 합성함수
+    * 다른 함수의 리턴값을 다른 함수의 파라미터로 넣어줌
+    * A => C를 만족하기 위해서 A를 파라미터로 받는 g에 A를 넣은 뒤
+    * B를 리턴받아 B를 파라미터로 받는 f에 인자로 넣어줌
+    * 함수의 리턴값을 다른 함수의 파라미터로 넣어주는 것을 합성함수라고 함
+    * FPIS에서는 다음과 같이 말한다.
+    * : 함수 합성에서는 한 함수의 출력을 다른 함수의 입력으로 공급한다.
+    *
+    * @param f
+    * @param g
+    * @tparam A
+    * @tparam B
+    * @tparam C
+    * @return
+    */
+  def compose[A, B, C](f : B => C, g: A => B): A => C = {
+    (a) => f(g(a))
+  }
+
 
   def main(args: Array[String]): Unit = {
     var a = Array[String]("one", "two", "three", "four", "five")
@@ -157,6 +178,6 @@ object Polymorphism {
     println(dup("three",3))
     println(dup("three",1))
 
-
+    println(compose[Int, Int, Int]( (x : Int) => 5+x, (y: Int) => (y*3))(5)) // 5*3 (second func) + 5 (first func)
   }
 }
