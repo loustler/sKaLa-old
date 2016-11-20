@@ -147,17 +147,15 @@ object Main extends App {
   // check status
   println(t)
 
-  /*
   // exercise 3-2
   println(List.tail(t))
 
   // exercise 3-3
   println(List.setHeader(0, t))
 
-  // exercise 2-4
+  // exercise 3-4
   println(List.drop(t, 2))
 
-  */
-  // exercise 2-5
+  // exercise 3-5
   println(List.dropWhile[Int](t, x  =>  x == 2))
 }
