@@ -9,7 +9,7 @@
  - [Official] (http://www.scala-lang.org)
 
 # Environment
- - `2.11.8`
+ - `2.12.0`
  - `Java 8`
  
 # Goal
