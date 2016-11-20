@@ -1,5 +1,7 @@
 package fpis.chapter.three
 
+import scala.annotation.tailrec
+
 /**
   * trait   : 자료 형식을 도입할 때
   *   일종의 추상 인터페이스, 일부 메서드의 구현도 가능
@@ -74,4 +76,88 @@ object List {
   def apply[A](as: A*): List[A] =
     if (as.isEmpty) Nil
     else Cons(as.head,  apply(as.tail : _*))
+
+  val ex1:  List[Double] = Nil
+  val ex2:  List[Int] = Cons(1, Nil)
+  val ex3:  List[String]  = Cons("a", Cons("b", Nil))
+
+  /**
+    * exercise 3-2
+    * 첫 요소 제거 하는 함수
+    *
+    * @param list
+    * @tparam A
+    * @return
+    *         Nil 이면 Nil
+    *         tail이 Nil이면 Nil
+    *         tail이 있으면 tail
+    */
+  def tail[A](list: List[A]): List[A] = list match {
+    case Nil  =>  Nil
+    case Cons(h, Nil) =>  Nil
+    case Cons(h, t) =>  t
+  }
+
+  /**
+    * exercise 3-2
+    *
+    * @param x
+    * @param list
+    * @tparam A
+    * @return
+    *         Nil이면 x를 넣어주고 Nil
+    *         tail이 Nil이면 head는 바꾸고 Nil 반환
+    *         tail이 있으면 head만 변경하고 tail 반환
+    */
+  def setHeader[A](x: A, list: List[A]): List[A] = list match {
+    case Nil => Cons(x, Nil)
+    case Cons(h, Nil) =>  Cons(x, Nil)
+    case Cons(h, t) =>  Cons(x, t)
+
+  }
+
+  /**
+    * 앞의 요소를 삭제
+    *
+    * @param n
+    * @param l
+    * @tparam A
+    * @return
+    *         Nil 이면 Nil
+    *         tail이 Nil이면(head만 있으면) 삭제하고자 하는 개수가 0보다 크면 Nil, 0이면 그대로
+    *
+    */
+  def drop[A](l: List[A], n: Int): List[A] = l match {
+    case Nil  =>  Nil
+    case Cons(h, Nil) =>  if (n > 0) Nil else l
+//    case Cons(h, Cons(hs, Nil)) =>  Cons(hs, Nil) // 넣으면 정상동작 안 함 why? 아래의 case와 겹치기 때문인 듯 ..
+    case Cons(h, ts)  =>  if (n-1 >= 0)  drop(ts, n-1) else l
+  }
+
+
+  def dropWhile[A](l: List[A], f: A => Boolean): List[A] = l match {
+    case Nil  =>  Nil
+    case Cons(h, Nil) => if (f(h))  Nil else  l
+    case Cons(h, t) =>  if (f(h)) t else  Cons(h, dropWhile(t, f))
+  }
+}
+
+object Main extends App {
+  var t : List[Int] = Cons(1, Cons(2, Cons(3, Cons(4, Nil))))
+  // check status
+  println(t)
+
+  /*
+  // exercise 3-2
+  println(List.tail(t))
+
+  // exercise 3-3
+  println(List.setHeader(0, t))
+
+  // exercise 2-4
+  println(List.drop(t, 2))
+
+  */
+  // exercise 2-5
+  println(List.dropWhile[Int](t, x  =>  x == 2))
 }
