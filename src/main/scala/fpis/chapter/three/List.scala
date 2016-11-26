@@ -189,7 +189,7 @@ object List {
 object Main extends App {
   var t : List[Int] = Cons(1, Cons(2, Cons(3, Cons(4, Nil))))
   var ta : List[Int] = List(1,1,1,2,1,1)
-
+/*
   // check status
   println(t)
 
@@ -210,6 +210,9 @@ object Main extends App {
 
   // exercise 3-6
   println(List.init(t))
+*/
 
+  // curried function dropWhile
+  println(List.dropWhileCurried(ta)(x => x < 2))
 
 }
