@@ -42,12 +42,12 @@ object List {
     *
     * @param ints
     * @return
-    *         Nil 즉 아무것도 없으면 0
-    *         Nil이 아니면 합계
+    * Nil 즉 아무것도 없으면 0
+    * Nil이 아니면 합계
     */
   def sum(ints: List[Int]): Int = ints match {
-    case Nil  =>  0
-    case Cons(x, xs)  =>  x * sum(xs)
+    case Nil => 0
+    case Cons(x, xs) => x * sum(xs)
   }
 
   /**
@@ -55,19 +55,20 @@ object List {
     *
     * @param doubleList
     * @return
-    *         Nil이면 1.0
+    * Nil이면 1.0
     *         0.0으로 시작하면 0.0
-    *         그 외에는 내부 element들 곱셈 결과
+    * 그 외에는 내부 element들 곱셈 결과
     */
   def product(doubleList: List[Double]): Double = doubleList match {
-    case Nil  =>  1.0
-    case Cons(0.0, _) =>  0.0
-    case Cons(x, xs)  =>  x * product(xs)
+    case Nil => 1.0
+    case Cons(0.0, _) => 0.0
+    case Cons(x, xs) => x * product(xs)
   }
 
   /**
     * A* : 0 ~ n개의 A (가변인수)
-    *   =>  Java의 ... 와 유사
+    * =>  Java의 ... 와 유사
+    *
     *
     * @param as
     * @tparam A
@@ -75,11 +76,11 @@ object List {
     */
   def apply[A](as: A*): List[A] =
     if (as.isEmpty) Nil
-    else Cons(as.head,  apply(as.tail : _*))
+    else Cons(as.head, apply(as.tail: _*))
 
-  val ex1:  List[Double] = Nil
-  val ex2:  List[Int] = Cons(1, Nil)
-  val ex3:  List[String]  = Cons("a", Cons("b", Nil))
+  val ex1: List[Double] = Nil
+  val ex2: List[Int] = Cons(1, Nil)
+  val ex3: List[String] = Cons("a", Cons("b", Nil))
 
   /**
     * exercise 3-2
@@ -88,14 +89,14 @@ object List {
     * @param list
     * @tparam A
     * @return
-    *         Nil 이면 Nil
-    *         tail이 Nil이면 Nil
-    *         tail이 있으면 tail
+    * Nil 이면 Nil
+    * tail이 Nil이면 Nil
+    * tail이 있으면 tail
     */
   def tail[A](list: List[A]): List[A] = list match {
-    case Nil  =>  Nil
-    case Cons(h, Nil) =>  Nil
-    case Cons(h, t) =>  t
+    case Nil => Nil
+    case Cons(h, Nil) => Nil
+    case Cons(h, t) => t
   }
 
   /**
@@ -105,14 +106,14 @@ object List {
     * @param list
     * @tparam A
     * @return
-    *         Nil이면 x를 넣어주고 Nil
-    *         tail이 Nil이면 head는 바꾸고 Nil 반환
-    *         tail이 있으면 head만 변경하고 tail 반환
+    * Nil이면 x를 넣어주고 Nil
+    * tail이 Nil이면 head는 바꾸고 Nil 반환
+    * tail이 있으면 head만 변경하고 tail 반환
     */
   def setHeader[A](x: A, list: List[A]): List[A] = list match {
     case Nil => Cons(x, Nil)
-    case Cons(h, Nil) =>  Cons(x, Nil)
-    case Cons(h, t) =>  Cons(x, t)
+    case Cons(h, Nil) => Cons(x, Nil)
+    case Cons(h, t) => Cons(x, t)
 
   }
 
@@ -123,15 +124,15 @@ object List {
     * @param l
     * @tparam A
     * @return
-    *         Nil 이면 Nil
-    *         tail이 Nil이면(head만 있으면) 삭제하고자 하는 개수가 0보다 크면 Nil, 0이면 그대로
+    * Nil 이면 Nil
+    * tail이 Nil이면(head만 있으면) 삭제하고자 하는 개수가 0보다 크면 Nil, 0이면 그대로
     *
     */
   def drop[A](l: List[A], n: Int): List[A] = l match {
-    case Nil  =>  Nil
-    case Cons(h, Nil) =>  if (n > 0) Nil else l
-//    case Cons(h, Cons(hs, Nil)) =>  Cons(hs, Nil) // 넣으면 정상동작 안 함 why? 아래의 case와 겹치기 때문인 듯 ..
-    case Cons(h, ts)  =>  if (n-1 >= 0)  drop(ts, n-1) else l
+    case Nil => Nil
+    case Cons(h, Nil) => if (n > 0) Nil else l
+    //    case Cons(h, Cons(hs, Nil)) =>  Cons(hs, Nil) // 넣으면 정상동작 안 함 why? 아래의 case와 겹치기 때문인 듯 ..
+    case Cons(h, ts) => if (n - 1 >= 0) drop(ts, n - 1) else l
   }
 
 
@@ -144,10 +145,9 @@ object List {
     * @tparam A
     * @return
     */
-  def dropWhileAll[A](l: List[A], f: A => Boolean): List[A] = l match {
-    case Nil  =>  Nil
-    case Cons(h, Nil) => if (f(h))  Nil else  l
-    case Cons(h, t) =>  if (f(h)) t else  Cons(h, dropWhileAll(t, f))
+  def dropWhileRecursive[A](l: List[A], f: A => Boolean): List[A] = l match {
+    case Nil => Nil
+    case Cons(h, t) => if (f(h)) t else Cons(h, dropWhileRecursive(t, f))
   }
 
   /**
@@ -161,9 +161,9 @@ object List {
     * @return
     */
   def dropWhile[A](l: List[A], f: A => Boolean): List[A] = l match {
-    case Nil  =>  Nil
-    case Cons(h, Nil) => if (f(h))  Nil else  l
-    case Cons(h, t) =>  if (f(h)) dropWhile(t, f) else l
+    case Nil => Nil
+    case Cons(h, Nil) => if (f(h)) Nil else l
+    case Cons(h, t) => if (f(h)) dropWhile(t, f) else l
   }
 
   /**
@@ -179,17 +179,37 @@ object List {
     case Cons(h, t) => Cons(h, init(t))
   }
 
+  /**
+    * change to curried function
+    *
+    * @param l
+    * @param f
+    * @tparam A
+    * @return
+    */
   def dropWhileCurried[A](l: List[A])(f: A => Boolean): List[A] = l match {
     case Cons(h, t) if f(h) => dropWhileCurried(t)(f)
     case _ => l
   }
 
+  /**
+    * refactoring to change to curried function
+    *
+    * @param l
+    * @param f
+    * @tparam A
+    * @return
+    */
+  def dropWhileRecursiveCurried[A](l: List[A])(f: A => Boolean): List[A] = l match {
+    case Cons(h, t) => if (f(h)) t else Cons(h, dropWhileRecursive(t, f))
+    case _ => l
+  }
 }
 
 object Main extends App {
   var t : List[Int] = Cons(1, Cons(2, Cons(3, Cons(4, Nil))))
   var ta : List[Int] = List(1,1,1,2,1,1)
-/*
+
   // check status
   println(t)
 
@@ -206,13 +226,15 @@ object Main extends App {
   println(List.dropWhile[Int](ta, (x => x == 1)))
 
   // advanced 3-5
-  println(List.dropWhileAll[Int](t, x  =>  x == 2))
+  println(List.dropWhileRecursive[Int](t, x  =>  x == 2))
 
   // exercise 3-6
   println(List.init(t))
-*/
 
   // curried function dropWhile
   println(List.dropWhileCurried(ta)(x => x < 2))
+
+  // curried function dropWhileRecursive
+  println(List.dropWhileRecursiveCurried(ta)(x => x == 1))
 
 }
