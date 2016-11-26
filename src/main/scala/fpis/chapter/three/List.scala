@@ -135,16 +135,48 @@ object List {
   }
 
 
+  /**
+    * exercise 3-5 advance
+    * Remove all match elements in list
+    *
+    * @param l
+    * @param f
+    * @tparam A
+    * @return
+    */
   def dropWhileAll[A](l: List[A], f: A => Boolean): List[A] = l match {
     case Nil  =>  Nil
     case Cons(h, Nil) => if (f(h))  Nil else  l
     case Cons(h, t) =>  if (f(h)) t else  Cons(h, dropWhileAll(t, f))
   }
 
+  /**
+    * exercise 3-5
+    * remove element in list
+    * if not match break recursive.
+    *
+    * @param l
+    * @param f
+    * @tparam A
+    * @return
+    */
   def dropWhile[A](l: List[A], f: A => Boolean): List[A] = l match {
     case Nil  =>  Nil
     case Cons(h, Nil) => if (f(h))  Nil else  l
     case Cons(h, t) =>  if (f(h)) dropWhile(t, f) else l
+  }
+
+  /**
+    * remove last element in list
+    *
+    * @param l
+    * @tparam A
+    * @return
+    */
+  def init[A](l: List[A]): List[A] = l match {
+    case Nil => l
+    case Cons(h, Nil) => Nil
+    case Cons(h, t) => Cons(h, init(t))
   }
 }
 
@@ -169,4 +201,8 @@ object Main extends App {
 
   // advanced 3-5
   println(List.dropWhileAll[Int](t, x  =>  x == 2))
+
+  // exercise 3-6
+  println(List.init(t))
+
 }
