@@ -178,6 +178,12 @@ object List {
     case Cons(h, Nil) => Nil
     case Cons(h, t) => Cons(h, init(t))
   }
+
+  def dropWhileCurried[A](l: List[A])(f: A => Boolean): List[A] = l match {
+    case Cons(h, t) if f(h) => dropWhileCurried(t)(f)
+    case _ => l
+  }
+
 }
 
 object Main extends App {
@@ -204,5 +210,6 @@ object Main extends App {
 
   // exercise 3-6
   println(List.init(t))
+
 
 }
