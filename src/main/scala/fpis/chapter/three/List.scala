@@ -135,15 +135,23 @@ object List {
   }
 
 
+  def dropWhileAll[A](l: List[A], f: A => Boolean): List[A] = l match {
+    case Nil  =>  Nil
+    case Cons(h, Nil) => if (f(h))  Nil else  l
+    case Cons(h, t) =>  if (f(h)) t else  Cons(h, dropWhileAll(t, f))
+  }
+
   def dropWhile[A](l: List[A], f: A => Boolean): List[A] = l match {
     case Nil  =>  Nil
     case Cons(h, Nil) => if (f(h))  Nil else  l
-    case Cons(h, t) =>  if (f(h)) t else  Cons(h, dropWhile(t, f))
+    case Cons(h, t) =>  if (f(h)) dropWhile(t, f) else l
   }
 }
 
 object Main extends App {
   var t : List[Int] = Cons(1, Cons(2, Cons(3, Cons(4, Nil))))
+  var ta : List[Int] = List(1,1,1,2,1,1)
+
   // check status
   println(t)
 
@@ -157,5 +165,8 @@ object Main extends App {
   println(List.drop(t, 2))
 
   // exercise 3-5
-  println(List.dropWhile[Int](t, x  =>  x == 2))
+  println(List.dropWhile[Int](ta, (x => x == 1)))
+
+  // advanced 3-5
+  println(List.dropWhileAll[Int](t, x  =>  x == 2))
 }
