@@ -15,6 +15,12 @@
 # Goal
  - Scala의 학습
  
+# Travis ci build test env
+ - `2.10.4`
+ - `2.11.8`
+ - `2.12.0`
+ - `2.12.1`
+ 
 # Reference
  - Book
   - FPIS(Functional Programming In Scala) Paul Chiusano, Runar Bjarnason [Book Link](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791185890180&orderClick=LAG&Kc=)
