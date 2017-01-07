@@ -9,8 +9,9 @@
  - [Official] (http://www.scala-lang.org)
 
 # Environment
- - `2.12.0`
+ - `2.12.1`
  - `Java 8`
+ - `[ammonite-repl](http://www.lihaoyi.com/Ammonite/)`
  
 # Goal
  - Scala의 학습
