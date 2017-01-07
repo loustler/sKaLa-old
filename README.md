@@ -11,7 +11,7 @@
 # Environment
  - `2.12.1`
  - `Java 8`
- - `[ammonite-repl](http://www.lihaoyi.com/Ammonite/)`
+ - `ammonite-repl` [webPage](http://www.lihaoyi.com/Ammonite/)
  
 # Goal
  - Scala의 학습
