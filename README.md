@@ -1,12 +1,11 @@
 [![Build Status](https://travis-ci.org/loustler/scala.svg)](https://travis-ci.org/loustler/scala)
 
-
-# Scala
- - multiparadigm programming language 다중패러다임 프로그래밍 언어 [Wiki](https://ko.wikipedia.org/wiki/다중_패러다임_프로그래밍_언어)
- - JVM 기반언어
- - Java를 사용할 수 있음
+# What is Scala
+ - multiparadigm programming language [Wiki](https://ko.wikipedia.org/wiki/다중_패러다임_프로그래밍_언어)
+ - Based on JVM
+ - To possible use Java
  - [GitHub](https://github.com/scala/scala)
- - [Official] (http://www.scala-lang.org)
+ - [Official](http://www.scala-lang.org)
 
 # Environment
  - `2.12.1`
@@ -14,7 +13,7 @@
  - `ammonite-repl` [webPage](http://www.lihaoyi.com/Ammonite/)
  
 # Goal
- - Scala의 학습
+ - Learn scala
  
 # Travis ci build test env
  - `2.10.4`
