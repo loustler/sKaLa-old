@@ -4,6 +4,9 @@ import scala.io.Source
   * @since 01/14/2017 18:21
   */
 
+/*
+ * If you want to use it, remove the comment that encloses this scala script.
+
 def widthofLength(s: String)  = s.length.toString.length
 
 // 예제와는 다름, travis에서 compile error를 방지 하기 위함
@@ -34,3 +37,4 @@ def wordCountInFile(fileName: String): Unit = {
   else
     Console.err.println("Please enter filename")
 }
+*/
