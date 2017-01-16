@@ -14,7 +14,7 @@ object ForExpression {
   def printArgsI(args: Array[String]): Unit = {
     var i = 0;
 
-    while ( i < args.length) {
+    while ( i < args.length ) {
       println(args(i))
       i += 1
     }
@@ -26,7 +26,7 @@ object ForExpression {
     * @param args strings for print
     */
   def printArgsF(args: Array[String]): Unit = {
-    for ( arg <- args)
+    for ( arg <- args )
       println(arg)
   }
 

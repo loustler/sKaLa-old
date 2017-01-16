@@ -11,7 +11,7 @@ class Ambiguity {}
 class B {}
 
 object A {
-  def apply(myB : B): Unit = {
+  def apply(myB: B): Unit = {
     println("apply")
   }
 

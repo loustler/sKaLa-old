@@ -6,8 +6,8 @@ package scala.in.programming.step.second
   * @author loustler
   * @since 01/14/2017 17:12
   */
-object FunctionExpression extends App{
-  val strs : Array[String] = Array("Hi,", "My", "nickname", "is", "loustler")
+object FunctionExpression extends App {
+  val strs: Array[String] = Array("Hi,", "My", "nickname", "is", "loustler")
 
   // Imperative Programming Language's for expression.
   println("------ for :: Imperative Language ------")
@@ -30,16 +30,16 @@ object FunctionExpression extends App{
     * @param args The target string which insert new line.
     * @return Insert new line into each elements in args.
     */
-  def formatArgs(args: Array[String]) : String = formatArgs(args, "\n")
+  def formatArgs(args: Array[String]): String = formatArgs(args, "\n")
 
   /**
     * Make string into parameter each element in arguments.
     *
     * @param args The target string which insert some string.
-    * @param str Insert string.
+    * @param str  Insert string.
     * @return Insert new string into each elements in args.
     */
-  def formatArgs(args: Array[String], str: String) : String =
+  def formatArgs(args: Array[String], str: String): String =
     args.mkString(str)
 
 
