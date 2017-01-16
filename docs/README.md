@@ -15,6 +15,7 @@
 - [함수형 프로그래밍이란 무엇인가](what%20is%20functional%20programming.md)
 - [튜플](tuple.md)
 - [print 10 이 허용이 안되는 이유](Not%20Allow%20println%2010.md)
+- [Class와 Object](Class%20and%20Object.md)
 
 ## In wiki
 - [Scala에서의 관례](Scala에서의-관례)
@@ -29,3 +30,4 @@
 - [함수형 프로그래밍이란 무엇인가](함수형-프로그래밍이란-무엇인가%3F)
 - [튜플](Tuple)
 - [print 10 이 허용이 안되는 이유](println-10-이-허용되지-않는-이유)
+- [Class와 Object](Class-and-Object)
