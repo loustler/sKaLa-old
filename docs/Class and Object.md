@@ -52,6 +52,9 @@ Scala에서 `method` 작성시 아래와 같이 권장
 
 > `procedure`는 오직 `side-effect`를 얻기 위해서만 사용하는 `method`를 의미
 
+`def setAge(age: Int) {this.age = age}` 같은 경우에도 `Unit`으로 `return type` 판정
+
+등호(`=`)가 빠졌기 때문에 ...
 
 -------------
 Written 01/17/2017 by @loustler
