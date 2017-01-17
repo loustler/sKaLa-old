@@ -56,5 +56,40 @@ Scala에서 `method` 작성시 아래와 같이 권장
 
 등호(`=`)가 빠졌기 때문에 ...
 
+# Object 
+
+Singleton 을 사용할 때 사용하며 Scala에서 제공하는 Singleton Object
+
+> static method를 모아놓은 집합체 
+
+라고 생각해도 됨 
+
+`object` keyword가 있는 Singleton object는 
+
+ 1. first-class
+ 2. super class를 extend 하거나 trait을 mix-in 할 수 있음 
+
+class와 singleton의 차이점은 
+
+> Singleton은 parameter를 받을 수 없고 class는 받을 수 있다
+
+는 것이다
+
+Singleton은 new로 instance화를 할 수 없기 때문에(당연한 말)
+
+parameter를 singleton에 넘길 방법이 없다는 것
+
+compiler는 각 singleton object를 synthetic class의 instance로 구현하고 
+
+정적변수가 이것을 참조함
+
+companion class가 없는 singleton object는 standalone object라고 함
+
+목적은
+
+    1. utility method를 모으거나 
+    2. scala application의 진입점을 만들 때 사용
+    
+ 
 -------------
 Written 01/17/2017 by @loustler
