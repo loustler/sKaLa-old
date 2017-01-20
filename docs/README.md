@@ -16,6 +16,7 @@
 - [튜플](tuple.md)
 - [print 10 이 허용이 안되는 이유](Not%20Allow%20println%2010.md)
 - [Class와 Object](Class%20and%20Object.md)
+- [Immutable Class](Immutable%20Object.md)
 
 ## In wiki
 - [Scala에서의 관례](../../../wiki/Scala에서의-관례)
