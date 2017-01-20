@@ -41,3 +41,16 @@ val twoThree = List(2, 3)
     2.  `scala`
     
 package 아래에 있는 Member를 import 함
+
+
+# Class name equal File name
+
+일치하지 않아도 사용가능함 
+
+`Java`는 Class name과 File name이 일치해야 하지만,
+
+`Scala`는 그렇지 않음
+
+그러나 `Java`와 같이 Class name과 File name을 일치시키도록 권장함
+
+[Scala Code Style Guide](http://docs.scala-lang.org/style/files)
