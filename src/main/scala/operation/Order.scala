@@ -1,7 +1,6 @@
 package operation
 
 import java.lang.AssertionError
-
 /**
   * @author loustler
   * @since 01/20/2017 20:51
@@ -19,6 +18,5 @@ object Order extends App{
   } finally {
     println("Catch Error")
   }
-
 
 }
