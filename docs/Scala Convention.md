@@ -32,3 +32,12 @@ val twoThree = List(2, 3)
  1. 어떤 줄이 어떤 명령을 끝낼 수 있는 단어로 끝나지 않음. 즉 마침표(.)나 중위 연산자 등이 줄의 끝에 있다
  1. 다음 줄의 맨 앞장이 문장을 시작할 수 없는 단어로 시작
  1. 줄이 `(...)` 같은 parentheses 사이나 `[...]` 같은 brackets 사이에서 끝 
+ 
+# Always auto import
+
+스칼라는 
+
+    1.  `java.lang` 
+    2.  `scala`
+    
+package 아래에 있는 Member를 import 함
