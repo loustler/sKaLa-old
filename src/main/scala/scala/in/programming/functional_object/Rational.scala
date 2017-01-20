@@ -14,8 +14,10 @@ class Rational(n: Int, d: Int) {
     */
   require(d != 0)
 
-  val numer: Int = n
-  val denom: Int = d
+  val numer: Int = n / g
+  val denom: Int = d / g
+
+  private val g = gcd(n.abs, d.abs)
 
   def this(n: Int) = this(n, 1) // Auxiliary Constructor for this class.
 
@@ -48,4 +50,25 @@ class Rational(n: Int, d: Int) {
     this.numer * that.denom < that.numer * this.denom
 
   override def toString: String = n + "/" + d
+
+  /**
+    * Get Greatest Common Divisor use recursive call self.
+    *
+    * This function called private helper method.
+    *
+    * Pure Function, Not side-effect.
+    *
+    * Work like below..
+    *
+    * {{{ gcd ( 12, 8 ) }}} =>
+    * {{{ 8 != 0 do recursive call like (8, 12 % 8 == 4) }}} =>
+    * {{{ 4 != 0 do recursive call like (4, 8 % 4 == 0) }}} =>
+    * {{{ 0 == 0 return 4 }}}
+    *
+    * @param a
+    * @param b
+    * @return Greatest Common Divisor
+    */
+  private def gcd(a: Int, b: Int): Int =
+    if ( b == 0 ) a else gcd(b, a % b)
 }
