@@ -11,7 +11,17 @@ object DefaultType {
   val longMaxHex: Long = 0x7FFFFFFF
   val charMaxHex: Char = 0xFFFF
   val strs: String = ""
-  val floatMax: Float = 3.4028235E38F
+  val floatMax: Float = Float.MaxValue // Throw build exception in travis. Because 3.4028235E38F is too large
   val doubleMax: Double = 1.7976931348623157E308
   val booleen: Boolean = true
+
+  // Max value of Default Type on scala. Not Hex
+  val byteMax: Byte = Byte.MaxValue
+  val shortMax: Short = Short.MaxValue
+  val intMax: Int = Int.MaxValue
+  val longMax: Long = Long.MaxValue
+  val charMax: Char = Char.MaxValue
+  val str: String = ""
+
+
 }
