@@ -14,6 +14,9 @@
  1. [<-](#for-arg-in-args)
  1. [trait](#trait)
  1. [->](#make-tuple)
+ 1. [Operator Identifier](#operator-identifier)
+ 1. [Mixed Identifier](#mixed-identifier)
+ 1. [Literal Identifier](#literal-identifier)
 
 # val 
  읽기전용 값으로 선언할 때 사용하며, `Java`에서 `final`과 비슷하게 동작<br>
@@ -106,6 +109,33 @@ trait은 Java에서 `interface`와 유사
  이 부분인 것 같음 
 
  `Tuple2`를 생성시키고 있음
+ 
+# operator identifier
+ 하나 이상의 연산자 문자로 이루어져 있음 
+ 
+ e.g 
+ 
+ ```
+ +  ++  ::: <?> :->
+ ```
+
+# mixed identifier
+  영문자와 숫자로 이루어진 식별자의 뒤에 밑줄이고 그 뒤에 연산자 식별자
+  
+  e.g
+  
+  ```
+  myvar_=
+  ```
+  
+# literal identifier
+ 역따옴표(`)로 감싼 임의의 문자열
+ 
+ ```
+ `x` 
+  `<clinit>`
+  `yield`
+ ```
 
 ------
 Written 12/23/16 by @loustler
