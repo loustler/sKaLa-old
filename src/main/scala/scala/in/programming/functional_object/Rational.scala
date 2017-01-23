@@ -5,7 +5,7 @@ package scala.in.programming.functional_object
   * @since 01/20/2017 21:17
   */
 class Rational(n: Int, d: Int) {
-  //
+
   /**
     * constructor의 제한조건
     *
@@ -14,10 +14,11 @@ class Rational(n: Int, d: Int) {
     */
   require(d != 0)
 
-  val numer: Int = n / g
-  val denom: Int = d / g
-
   private val g = gcd(n.abs, d.abs)
+
+  val numer: Int = n / g
+
+  val denom: Int = d / g
 
   def this(n: Int) = this(n, 1) // Auxiliary Constructor for this class.
 
@@ -52,6 +53,21 @@ class Rational(n: Int, d: Int) {
   override def toString: String = n + "/" + d
 
   /**
+    * Override to method which override operation.
+    *
+    * It like ..
+    * {{{ 1/2 + 3 }}} =>
+    * {{{ 1/2 + 6/2 }}} ==
+    * {{{ 1 + 6 / 2 }}} ==
+    * {{{ 7/2 }}}
+    *
+    * @param i
+    * @return
+    */
+  def +(i: Int) =
+    new Rational(numer + i * denom, denom)
+
+  /**
     * Override to operation.
     *
     * It like ..
@@ -62,9 +78,34 @@ class Rational(n: Int, d: Int) {
     * @param that
     * @return
     */
-  def +(that: Rational): Rational =
+  def +(that : Rational): Rational =
     new Rational(
       numer * that.denom + that.numer * denom,
+      denom * that.denom
+    )
+
+  /**
+    * Override method which override operation.
+    *
+    * @param i
+    * @return
+    */
+  def -(i : Int): Rational =
+    new Rational(numer - i * denom, denom)
+
+  /**
+    * Override operation.
+    *
+    * {{{ 1/2 - 1/3 }}} =>
+    * {{{ 3/6 - 2/6 }}} ==
+    * {{{ 1/6 }}}
+    *
+    * @param that
+    * @return
+    */
+  def -(that : Rational): Rational =
+    new Rational(
+      numer * that.denom - that.numer * denom,
       denom * that.denom
     )
 
@@ -78,8 +119,26 @@ class Rational(n: Int, d: Int) {
     * @param that
     * @return
     */
-  def *(that: Rational): Rational =
+  def *(that : Rational): Rational =
     new Rational(numer * that.numer, denom * that.denom)
+
+  /**
+    *
+    *
+    * @param i
+    * @return
+    */
+  def *(i: Int): Rational =
+    new Rational(numer * i, denom)
+
+  def /(that: Rational): Rational =
+    new Rational(
+      numer * that.denom,
+      denom * that.numer
+    )
+
+  def /(i: Int): Rational =
+    new Rational(numer, denom * i)
 
   /**
     * Get Greatest Common Divisor use recursive call self.
