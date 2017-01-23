@@ -52,6 +52,36 @@ class Rational(n: Int, d: Int) {
   override def toString: String = n + "/" + d
 
   /**
+    * Override to operation.
+    *
+    * It like ..
+    * {{{ 1/2 * 1/3 }}} =>
+    * {{{ 3/6 * 2/6 }}} ==
+    * {{{ 5/6 }}}
+    *
+    * @param that
+    * @return
+    */
+  def +(that: Rational): Rational =
+    new Rational(
+      numer * that.denom + that.numer * denom,
+      denom * that.denom
+    )
+
+  /**
+    * Override to operation.
+    *
+    * It like ...
+    * {{{ 1/2 * 1/3  }}} =>
+    * {{{ 1/6 }}}
+    *
+    * @param that
+    * @return
+    */
+  def *(that: Rational): Rational =
+    new Rational(numer * that.numer, denom * that.denom)
+
+  /**
     * Get Greatest Common Divisor use recursive call self.
     *
     * This function called private helper method.
