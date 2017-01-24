@@ -160,4 +160,18 @@ class Rational(n: Int, d: Int) {
     */
   private def gcd(a: Int, b: Int): Int =
     if ( b == 0 ) a else gcd(b, a % b)
+
+
+  /**
+    * This function support like below case.
+    * {{{ 2 * r  }}} is compile error but after apply this function
+    * {{{ 2 * r == r * 2}}}
+    *
+    * This function couldn't work isolatedly.
+    * If you want use this function, copy to your app.
+    *
+    * @param x
+    * @return
+    */
+  implicit def intToRational(x: Int) = new Rational(x)
 }
