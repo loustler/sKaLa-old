@@ -14,4 +14,10 @@ object RationalTest extends App{
   println(r / e)
   println(r / 2)
 
+
+  println(r * 2)
+//  println(2 * r) // this compile error
+  implicit def intToRational(x: Int) = new Rational(x)
+
+  println(2 * r)
 }
