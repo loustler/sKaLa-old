@@ -32,3 +32,4 @@
 - [튜플](../../../wiki/Tuple)
 - [print 10 이 허용이 안되는 이유](../../../wiki/println-10-이-허용되지-않는-이유)
 - [Class와 Object](../../../wiki/Class-and-Object)
+- [Immutable Object](../../../wiki/Immutable-Object)

@@ -38,8 +38,25 @@
  `Java`에서는 `Reference Check`지만 `Scala`는 `equals()`를 호출함
 
 # Unit
- `Java`의 `void`와 유사하게 동작함<br>
-  **오직 부수효과만**만을 위한 것 
+ `Java`의 `void`와 유사하게 동작함
+ 
+  **오직 부수효과만**만을 위한 것
+  
+  procedure 라고도 부름
+   
+ value는 unit value 밖에 없음
+  
+ unit value는 `()`로 표기된다는 점에서 `Unit`은 `Java`의 `void`와는 다름
+  
+ `var`를 사용해 `unit value`를 재할당하면 항상 `()`이기 떄문에 아래와 같은 경우는 무한루프가 됨
+ 
+ ```
+ var line = ""
+ while ( (line = readLine() ) != "")
+  println("READ : "+line)
+ ```
+ 
+ `readLine()`의 Unit 결과는 `()`이기 때문
 
 
 # asterisk(`*`)
