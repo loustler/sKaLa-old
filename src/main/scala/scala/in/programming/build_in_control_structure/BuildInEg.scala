@@ -21,22 +21,7 @@ object BuildInEg extends App {
 
   printf("%d, %d Greatest Common Divisor is %d", one, two, gcdLoop(one, two))
 
-  // Functional Programming don't recommend to use loop like below
-  def gcdLoop(x: Long, y: Long): Long = {
-    var a = x
-
-    var b = y
-
-    while ( a != 0 ) {
-      val temp = a
-
-      a = b % a
-
-      b = temp
-    }
-
-    b
-  }
+  val languages = Array("scala", "java", "ruby", "python", "javascript", "SQL", "go", "swift", "c")
 
   println("---Loop range use for syntax start -----")
 
@@ -56,9 +41,22 @@ object BuildInEg extends App {
 
   println("---Functional Programming recommend to want use loop like below start -----")
 
-  // Functional Programming recommend to want use loop like below
-  def gcd(x: Long, y: Long): Long =
-    if ( y == 0 ) x else gcd(y, x % y)
+  // Functional Programming don't recommend to use loop like below
+  def gcdLoop(x: Long, y: Long): Long = {
+    var a = x
+
+    var b = y
+
+    while ( a != 0 ) {
+      val temp = a
+
+      a = b % a
+
+      b = temp
+    }
+
+    b
+  }
 
   println("---Functional Programming recommend to want use loop like below end-----")
 
@@ -101,14 +99,52 @@ object BuildInEg extends App {
 
   println("---Twice loop start -----")
 
+  // Functional Programming recommend to want use loop like below
+  def gcd(x: Long, y: Long): Long =
+    if ( y == 0 ) x else gcd(y, x % y)
+
   for (
     i <- numberList
     if i < 4;
-    j <- Array("scala", "java", "martin odersky")
+    j <- languages
     if j != "java"
   ) printf("number : %d , String : %s\n", i, j)
 
   println("---Twice loop end-----")
 
+  println("---Value binding in for loop start-----")
 
+  // Binding value in for loop
+  for {
+    str <- languages
+    if str.length > 5
+    longStr <- str.toUpperCase
+  } printf("%s upperCase %s\n", str, longStr)
+
+  println("---Value binding in for loop end-----")
+
+  println("---create new collection in for loop start-----")
+
+  // Create new collection in for loop
+  val yieldResult = for {
+    language <- languages
+    if language.length > 1
+  } yield language
+
+  println("--------------------")
+
+  println("original collection")
+
+  languages.foreach(println)
+
+  println("--------------------")
+
+  println("yield result")
+
+  yieldResult.foreach(println)
+
+  println("--------------------")
+
+  println("---create new collection in for loop end-----")
+  
 }
