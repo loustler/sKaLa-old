@@ -17,6 +17,7 @@
  1. [Operator Identifier](#operator-identifier)
  1. [Mixed Identifier](#mixed-identifier)
  1. [Literal Identifier](#literal-identifier)
+ 1. [yield](#yield)
 
 # val 
  읽기전용 값으로 선언할 때 사용하며, `Java`에서 `final`과 비슷하게 동작<br>
@@ -153,6 +154,25 @@ trait은 Java에서 `interface`와 유사
   `<clinit>`
   `yield`
  ```
+
+# yield
+`for-yield`의 경우 loop 결과를 모아서 collection을 만듬
+
+`yield`는 순회마다 만들어내는 결과값을 모음
+
+전체 본문의 앞에 위치해야 함
+
+e.g
+```
+for {} yield [value]
+for () yield [value]
+
+for { number <- Array(1, 2, 3, 4, 5) } yield number // (1, 2, 3, 4, 5)
+for ( i <- 1 to 5) yield i; // (1, 2, 3, 4, 5)
+
+for { number <- Array(1, 2, 3, 4, 5) } yield number > 2 // (3, 4, 5)
+for { number <- Array(1, 2, 3, 4, 5) } yield { number > 2 } // (3, 4, 5)
+```
 
 ------
 Written 12/23/16 by @loustler
