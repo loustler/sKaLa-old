@@ -17,6 +17,7 @@
 - [print 10 이 허용이 안되는 이유](Not%20Allow%20println%2010.md)
 - [Class와 Object](Class%20and%20Object.md)
 - [Immutable Class](Immutable%20Object.md)
+- [Exception](Exception.md)
 
 ## In wiki
 - [Scala에서의 관례](../../../wiki/Scala에서의-관례)
@@ -33,3 +34,4 @@
 - [print 10 이 허용이 안되는 이유](../../../wiki/println-10-이-허용되지-않는-이유)
 - [Class와 Object](../../../wiki/Class-and-Object)
 - [Immutable Object](../../../wiki/Immutable-Object)
+- [Exception](../../../wiki/Exception)
