@@ -61,7 +61,7 @@ object SimpleFunctionLiteral extends App {
     * cuz provide 2 values as parameter out of 3 parameters.
     *
     */
-  val partially2 = sum(1, _, 3)
+  val partially2 = sum(1, _: Int, 3)
 
   println(partially2(2))
 
