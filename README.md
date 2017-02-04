@@ -1,7 +1,9 @@
 [![Build Status](https://travis-ci.org/loustler/scala.svg)](https://travis-ci.org/loustler/scala)
 
 # What is Scala
- - multiparadigm programming language [Wiki](https://ko.wikipedia.org/wiki/다중_패러다임_프로그래밍_언어)
+ - Multiparadigm programming language [Wiki](https://ko.wikipedia.org/wiki/다중_패러다임_프로그래밍_언어)
+    - Functional Programming(FP)
+    - Object Oriented Programming(OOP)
  - Based on JVM
  - To possible use Java
  - [GitHub](https://github.com/scala/scala)
@@ -15,7 +17,7 @@
 # Goal
  - Learn scala
  
-# Travis ci build test env
+# Environment for test on travis-ci 
  - `2.10.4`
  - `2.11.8`
  - `2.12.0`
