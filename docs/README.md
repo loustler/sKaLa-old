@@ -18,6 +18,7 @@
 - [Class와 Object](Class%20and%20Object.md)
 - [Immutable Class](Immutable%20Object.md)
 - [Exception](Exception.md)
+- [부분적용함수](Partially%20Applied%20Function.md)
 
 ## In wiki
 - [Scala에서의 관례](../../../wiki/Scala에서의-관례)
@@ -35,3 +36,4 @@
 - [Class와 Object](../../../wiki/Class-and-Object)
 - [Immutable Object](../../../wiki/Immutable-Object)
 - [Exception](../../../wiki/Exception)
+- [부분적용함수](../../../wiki/부분-적용-함수-Partially-Applied-Function)
