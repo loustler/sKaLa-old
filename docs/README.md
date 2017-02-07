@@ -19,6 +19,8 @@
 - [Immutable Class](Immutable%20Object.md)
 - [Exception](Exception.md)
 - [부분적용함수](Partially%20Applied%20Function.md)
+- [Closure](Closure.md)
+- [특별한 형태의 함수 호출](Specially%20invoke%20function.md)
 
 ## In wiki
 - [Scala에서의 관례](../../../wiki/Scala에서의-관례)
@@ -37,3 +39,5 @@
 - [Immutable Object](../../../wiki/Immutable-Object)
 - [Exception](../../../wiki/Exception)
 - [부분적용함수](../../../wiki/부분-적용-함수-Partially-Applied-Function)
+- [Closure](../../../wiki/Closure)
+- [특별한 형태의 함수 호출](../../../wiki/Specially-Invoke-Function)
