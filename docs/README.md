@@ -21,6 +21,7 @@
 - [부분적용함수](Partially%20Applied%20Function.md)
 - [Closure](Closure.md)
 - [특별한 형태의 함수 호출](Specially%20invoke%20function.md)
+- [Tail Recursion](Tail%20Recursion.md)
 
 ## In wiki
 - [Scala에서의 관례](../../../wiki/Scala에서의-관례)
@@ -41,3 +42,4 @@
 - [부분적용함수](../../../wiki/부분-적용-함수-Partially-Applied-Function)
 - [Closure](../../../wiki/Closure)
 - [특별한 형태의 함수 호출](../../../wiki/Specially-Invoke-Function)
+- [Tail Recursion](../../../wiki/Tail-Recursion)
