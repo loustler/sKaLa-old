@@ -24,24 +24,26 @@ object FileMacher {
 
 
   // Upper functions has duplicate source. It was not good.
-  def fileMatching(query: String, matcher: (String, String) => Boolean) =
-    for ( file <- filesHere; if matcher(file.getName, query) )
+  def fileMatching(matcher: String => Boolean) =
+    for ( file <- filesHere; if matcher(file.getName) )
       yield file
 
 
   // It is like fileEncoding function.
   def filesEncoding2(query: String) =
 //    fileMatching(query, (fileName, query) => fileName.endsWith(query))
-    fileMatching(query, _.endsWith(_))
+    fileMatching(_.endsWith(query))
+
 
   // It is like fileContaining function.
   def fileContaining2(query: String) =
 //    fileMatching(query, (fileName, query) => fileName.contains(query))
-    fileMatching(query, _.contains(_))
+    fileMatching(_.contains(query))
+
 
   // It is like fileRegex function.
   def fileRegex2(query: String) =
 //    fileMatching(query, (fileName, query) => fileName.matches(query))
-    fileMatching(query, _.matches(_))
+    fileMatching(_.matches(query))
 
 }
