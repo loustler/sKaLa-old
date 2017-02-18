@@ -4,14 +4,14 @@ import scala.annotation.tailrec
 
 /**
   * trait   : 자료 형식을 도입할 때
-  *   일종의 추상 인터페이스, 일부 메서드의 구현도 가능
+  * 일종의 추상 인터페이스, 일부 메서드의 구현도 가능
   * sealed  : trait의 모든 구현이 이 파일 안에 선언되어 있어야 함
   *
-  * @tparam +A : Covariant Type Parameter
+  * @tparam + A : Covariant Type Parameter
   *
-  * Covariant : Generics에서 type의 상속관계를 인정해주는 것
-  *   ex: class Animal  class Dog extends Animal 일 경우,
-  *       List[Animal]의 subtype으로 List[Dog]를 인정함(Java는 인정 안 함 => Collection과 언어의 한계)
+  *           Covariant : Generics에서 type의 상속관계를 인정해주는 것
+  *           ex: class Animal  class Dog extends Animal 일 경우,
+  *           List[Animal]의 subtype으로 List[Dog]를 인정함(Java는 인정 안 함 => Collection과 언어의 한계)
   */
 sealed trait List[+A]
 
@@ -22,16 +22,17 @@ sealed trait List[+A]
   * Nothing은 모든 type의 하위
   */
 case object Nil extends List[Nothing]
+
 case class Cons[+A](head: A, tail: List[A]) extends List[A]
 
 
 /**
   * 동반객체(companion object)  : 자료형식과 같은 이름의 object로 자료 형식의 값들을 생성하거나 조작하는 여러 편의용 함수를 제공하는 목적으로 쓰임
-  *                             관례에 가까움
-  *                           =>  여기에서는 sum과 product가 해당됨(List의 동반객체)
+  * 관례에 가까움
+  * =>  여기에서는 sum과 product가 해당됨(List의 동반객체)
   *
   * 패턴 부합(pattern matching) : 표현식의 구조를 따라 내려가면서 구조의 부분 표현식을 추출하는 복잡한 switch와 비슷하게 동작
-  *         syntax  : return type = parameter( matching target )  match { case ~ => ~ }
+  * syntax  : return type = parameter( matching target )  match { case ~ => ~ }
   *
   * @author loustler
   * @since 11/20/2016 13:17
@@ -51,13 +52,13 @@ object List {
   }
 
   /**
-    * Product of Double List's element
+    * The product of all of the double in list.
     *
-    * @param doubleList
+    * @param doubleList List of Double
     * @return
-    * Nil이면 1.0
-    *         0.0으로 시작하면 0.0
-    * 그 외에는 내부 element들 곱셈 결과
+    * if doubleList is Nil returns 1.0
+    * if doubleList start with 0.0 returns 0.0
+    * and another case, The product of all of the elements.
     */
   def product(doubleList: List[Double]): Double = doubleList match {
     case Nil => 1.0
@@ -75,166 +76,91 @@ object List {
     * @return
     */
   def apply[A](as: A*): List[A] =
-    if (as.isEmpty) Nil
+    if ( as.isEmpty ) Nil
     else Cons(as.head, apply(as.tail: _*))
 
-  val ex1: List[Double] = Nil
-  val ex2: List[Int] = Cons(1, Nil)
-  val ex3: List[String] = Cons("a", Cons("b", Nil))
-
   /**
-    * exercise 3-2
-    * 첫 요소 제거 하는 함수
+    * Remove fist element at List.
     *
-    * @param list
-    * @tparam A
-    * @return
-    * Nil 이면 Nil
-    * tail이 Nil이면 Nil
-    * tail이 있으면 tail
+    * @param l List of A type.
+    * @tparam A Some types.
+    * @return Returns result of remove first element at list.
     */
-  def tail[A](list: List[A]): List[A] = list match {
+  def tail[A](l : List[A]): List[A] = l match {
     case Nil => Nil
-    case Cons(h, Nil) => Nil
     case Cons(h, t) => t
   }
 
-  /**
-    * exercise 3-2
-    *
-    * @param x
-    * @param list
-    * @tparam A
-    * @return
-    * Nil이면 x를 넣어주고 Nil
-    * tail이 Nil이면 head는 바꾸고 Nil 반환
-    * tail이 있으면 head만 변경하고 tail 반환
-    */
-  def setHeader[A](x: A, list: List[A]): List[A] = list match {
-    case Nil => Cons(x, Nil)
-    case Cons(h, Nil) => Cons(x, Nil)
-    case Cons(h, t) => Cons(x, t)
 
+  /**
+    * First elements in list.
+    *
+    * @param l List of A types.
+    * @tparam A Some types.
+    * @return returns first element.
+    */
+  def head[A](l: List[A]): A = l match {
+    case Cons(h, t) => h
   }
 
+
   /**
-    * 앞의 요소를 삭제
+    * Set element as first element to list.
     *
-    * @param n
-    * @param l
-    * @tparam A
-    * @return
-    * Nil 이면 Nil
-    * tail이 Nil이면(head만 있으면) 삭제하고자 하는 개수가 0보다 크면 Nil, 0이면 그대로
+    * @param x Set elements.
+    * @param l List of A types.
+    * @tparam A Some types.
+    * @return Returns result of change first element.
+    */
+  def setHead[A](x: A, l: List[A]): List[A] = l match {
+    case Nil => Cons(x, Nil)
+    case Cons(h, t) => Cons(x, t)
+  }
+
+
+  /**
+    * Removes elements from list.
     *
+    * @param l List of A types.
+    * @param n Count of removes to elements.
+    * @tparam A Some type.
+    * @return Result of removes elements in list.
     */
   def drop[A](l: List[A], n: Int): List[A] = l match {
     case Nil => Nil
-    case Cons(h, Nil) => if (n > 0) Nil else l
-    //    case Cons(h, Cons(hs, Nil)) =>  Cons(hs, Nil) // 넣으면 정상동작 안 함 why? 아래의 case와 겹치기 때문인 듯 ..
-    case Cons(h, ts) => if (n - 1 >= 0) drop(ts, n - 1) else l
+    case Cons(h, t) => if ( n > 0 ) drop(t, n - 1) else l
   }
 
 
   /**
-    * exercise 3-5 advance
-    * Remove all match elements in list
+    * Removes elements from list if HOF returns true.
     *
-    * @param l
-    * @param f
-    * @tparam A
-    * @return
-    */
-  def dropWhileRecursive[A](l: List[A], f: A => Boolean): List[A] = l match {
-    case Nil => Nil
-    case Cons(h, t) => if (f(h)) t else Cons(h, dropWhileRecursive(t, f))
-  }
-
-  /**
-    * exercise 3-5
-    * remove element in list
-    * if not match break recursive.
-    *
-    * @param l
-    * @param f
-    * @tparam A
-    * @return
+    * @param l List of A types.
+    * @param f Predicate function.
+    * @tparam A Some type.
+    * @return Result of remove elements until f returns true.
     */
   def dropWhile[A](l: List[A], f: A => Boolean): List[A] = l match {
     case Nil => Nil
-    case Cons(h, Nil) => if (f(h)) Nil else l
-    case Cons(h, t) => if (f(h)) dropWhile(t, f) else l
+    case Cons(h, t) => if(f(h)) dropWhile(t, f) else l
   }
 
-  /**
-    * remove last element in list
-    *
-    * @param l
-    * @tparam A
-    * @return
-    */
+
   def init[A](l: List[A]): List[A] = l match {
-    case Nil => l
+    case Nil => Nil
     case Cons(h, Nil) => Nil
     case Cons(h, t) => Cons(h, init(t))
-  }
-
-  /**
-    * change to curried function
-    *
-    * @param l
-    * @param f
-    * @tparam A
-    * @return
-    */
-  def dropWhileCurried[A](l: List[A])(f: A => Boolean): List[A] = l match {
-    case Cons(h, t) if f(h) => dropWhileCurried(t)(f)
-    case _ => l
-  }
-
-  /**
-    * refactoring to change to curried function
-    *
-    * @param l
-    * @param f
-    * @tparam A
-    * @return
-    */
-  def dropWhileRecursiveCurried[A](l: List[A])(f: A => Boolean): List[A] = l match {
-    case Cons(h, t) => if (f(h)) t else Cons(h, dropWhileRecursive(t, f))
-    case _ => l
   }
 }
 
 object Main extends App {
-  var t : List[Int] = Cons(1, Cons(2, Cons(3, Cons(4, Nil))))
-  var ta : List[Int] = List(1,1,1,2,1,1)
+  var t: List[Int] = Cons(1, Cons(2, Cons(3, Cons(4, Nil))))
 
-  // check status
-  println(t)
+  var ta: List[Int] = List(1, 1, 1, 2, 1, 1)
 
-  // exercise 3-2
-  println(List.tail(t))
+  println(List.drop(t, 1))
 
-  // exercise 3-3
-  println(List.setHeader(0, t))
+  println(List.dropWhile(ta, (x :Int) => x == 1))
 
-  // exercise 3-4
-  println(List.drop(t, 2))
-
-  // exercise 3-5
-  println(List.dropWhile[Int](ta, (x => x == 1)))
-
-  // advanced 3-5
-  println(List.dropWhileRecursive[Int](t, x  =>  x == 2))
-
-  // exercise 3-6
   println(List.init(t))
-
-  // curried function dropWhile
-  println(List.dropWhileCurried(ta)(x => x < 2))
-
-  // curried function dropWhileRecursive
-  println(List.dropWhileRecursiveCurried(ta)(x => x == 1))
-
 }
