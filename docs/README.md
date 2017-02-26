@@ -22,6 +22,7 @@
 - [Closure](Closure.md)
 - [특별한 형태의 함수 호출](Specially%20invoke%20function.md)
 - [Tail Recursion](Tail%20Recursion.md)
+- [Loan Pattern](Loan%20Pattern.md)
 
 ## In wiki
 - [Scala에서의 관례](../../../wiki/Scala에서의-관례)
@@ -43,3 +44,4 @@
 - [Closure](../../../wiki/Closure)
 - [특별한 형태의 함수 호출](../../../wiki/Specially-Invoke-Function)
 - [Tail Recursion](../../../wiki/Tail-Recursion)
+- [Loan Pattern](../../../wiki/Loan-Pattern)
