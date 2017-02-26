@@ -6,13 +6,11 @@ package scala.in.programming.abstract_internal_control
   */
 object SimpleCodeForClientCodes {
   def containsNeg(nums: List[Int]): Boolean = {
-    var exists = false
-
     for ( num <- nums )
       if ( num < 0 )
-        exists = true
+        return true
 
-    exists
+    false
   }
 
 
@@ -20,13 +18,11 @@ object SimpleCodeForClientCodes {
 
 
   def containsOdd(nums: List[Int]): Boolean = {
-    var exists = false
-
     for ( num <- nums )
       if ( num % 2 == 1 )
-        exists = true
+        return true
 
-    exists
+    false
   }
 
 
