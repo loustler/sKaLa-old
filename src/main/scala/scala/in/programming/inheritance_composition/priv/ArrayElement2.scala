@@ -1,4 +1,4 @@
-package scala.in.programming.inheritance_composition
+package scala.in.programming.inheritance_composition.priv
 
 /**
   * @author loustler
