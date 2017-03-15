@@ -1,5 +1,7 @@
 package scala.in.programming.inheritance_composition.priv
 
+import scala.in.programming.inheritance_composition.Element
+
 /**
   * Abstract method not define(have method's body).
   * If method define (have body) not abstract method.
@@ -25,7 +27,7 @@ abstract class Element {
     * @return
     */
   def above(that: Element): Element =
-    new ArrayElement(this.contents ++ that.contents)
+    Element.elem(this.contents ++ that.contents)
 
 
   /**
@@ -49,9 +51,9 @@ abstract class Element {
     val contents = new Array[String](this.contents.length)
     for ( i <- 0 until this.contents.length )
       contents(i) = this.contents(i) + that.contents(i)
-    new ArrayElement(contents)
+    Element.elem(contents)
     */
-    new ArrayElement(
+    Element.elem(
       for (
         (line1, line2) <- this.contents zip that.contents
       ) yield line1 + line2
