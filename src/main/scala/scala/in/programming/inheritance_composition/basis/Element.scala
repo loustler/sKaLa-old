@@ -1,4 +1,4 @@
-package scala.in.programming.inheritance_composition.priv
+package scala.in.programming.inheritance_composition.basis
 
 import scala.in.programming.inheritance_composition.Element._
 
@@ -26,8 +26,11 @@ abstract class Element {
     * @param that Another element to merge.
     * @return
     */
-  def above(that: Element): Element =
-    elem(this.contents ++ that.contents)
+  def above(that: Element): Element = {
+    val this1 = this widen that.width
+    val that1 = that widen this.width
+    elem(this1.contents ++ that1.contents)
+  }
 
 
   /**
@@ -47,16 +50,11 @@ abstract class Element {
     * @return
     */
   def beside(that: Element): Element = {
-    /*
-    val contents = new Array[String](this.contents.length)
-    for ( i <- 0 until this.contents.length )
-      contents(i) = this.contents(i) + that.contents(i)
-    Element.elem(contents)
-    */
+    val this1 = this heighten that.height
+    val that1 = that heighten this.height
     elem(
-      for (
-        (line1, line2) <- this.contents zip that.contents
-      ) yield line1 + line2
+      for ( (line1, line2) <- this1.contents zip that1.contents )
+        yield line1 + line2
     )
   }
 

@@ -1,6 +1,6 @@
 package scala.in.programming.inheritance_composition
 
-import scala.in.programming.inheritance_composition.priv.{Element}
+import scala.in.programming.inheritance_composition.basis.{Element}
 
 /**
   * @author loustler
