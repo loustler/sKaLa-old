@@ -1,6 +1,6 @@
 package scala.in.programming.inheritance_composition.priv
 
-import scala.in.programming.inheritance_composition.Element
+import scala.in.programming.inheritance_composition.Element._
 
 /**
   * Abstract method not define(have method's body).
@@ -27,7 +27,7 @@ abstract class Element {
     * @return
     */
   def above(that: Element): Element =
-    Element.elem(this.contents ++ that.contents)
+    elem(this.contents ++ that.contents)
 
 
   /**
@@ -53,13 +53,30 @@ abstract class Element {
       contents(i) = this.contents(i) + that.contents(i)
     Element.elem(contents)
     */
-    Element.elem(
+    elem(
       for (
         (line1, line2) <- this.contents zip that.contents
       ) yield line1 + line2
     )
   }
 
+
+  def widen(w: Int): Element =
+    if (w <= width) this
+    else {
+      val left = elem(' ', (w - width) / 2, height)
+      val right = elem(' ', w - width - left.width, height)
+      left beside this beside right
+    }
+
+
+  def heighten(h: Int): Element =
+    if (h <= height) this
+    else {
+      val top = elem(' ', width, (h - height) / 2)
+      val bottom = elem(' ', width, h - height - top.height)
+      top above this above bottom
+    }
 
   override def toString: String = contents mkString "\n"
 }
