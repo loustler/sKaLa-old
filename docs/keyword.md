@@ -18,6 +18,7 @@
  1. [Mixed Identifier](#mixed-identifier)
  1. [Literal Identifier](#literal-identifier)
  1. [yield](#yield)
+ 1. [##](#hash-code)
 
 # val 
  읽기전용 값으로 선언할 때 사용하며, `Java`에서 `final`과 비슷하게 동작<br>
@@ -37,6 +38,16 @@
 
 # double equal
  `Java`에서는 `Reference Check`지만 `Scala`는 `equals()`를 호출함
+
+ `Java`에서 `1 == 1L`이지만 `new Integer(1) == new Long(1)`은 다름(Class가 다르기 때문(addr))
+
+ 일관성을 위해 `==`를 특별 취급
+
+ `Java`의 `==` (참조 비교)를 하기 위해서는 `eq()`를 사용하면 됨 
+
+# hash code
+
+ HashCode를 return 
 
 # Unit
  `Java`의 `void`와 유사하게 동작함
@@ -58,7 +69,6 @@
  ```
  
  `readLine()`의 Unit 결과는 `()`이기 때문
-
 
 # asterisk(`*`)
  - 메서드 파라미터에 가변인자를 적용하기 위해 사용
@@ -127,7 +137,7 @@ trait은 Java에서 `interface`와 유사
  이 부분인 것 같음 
 
  `Tuple2`를 생성시키고 있음
- 
+
 # operator identifier
  하나 이상의 연산자 문자로 이루어져 있음 
  
@@ -175,4 +185,4 @@ for { number <- Array(1, 2, 3, 4, 5) } yield { number > 2 } // (3, 4, 5)
 ```
 
 ------
-Written 12/23/16 by @loustler
+Written by @loustler at 12/23/16
