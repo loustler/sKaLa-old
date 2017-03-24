@@ -26,6 +26,7 @@
 - [스칼라에서 method와 function의 차이](difference%20between%20method%20and%20function.md)
 - [상속과 구성](Inheritance%20and%20composition.md)
 - [Class Hierarchy of Scala](Class%20Hierarchy%20of%20Scala.md)
+- [trait](trait.md)
 
 ## In wiki
 - [Scala에서의 관례](../../../wiki/Scala에서의-관례)
@@ -51,3 +52,4 @@
 - [스칼라에서 method와 function의 차이](../../../wiki/Difference-between-method-and-function)
 - [상속과 구성](../../../wiki/Inheritance-and-Composition)
 - [Class Hierarchy of Scala](../../../wiki/Class-hierarchy-of-scala)
+- [trait](../../../wiki/trait)
