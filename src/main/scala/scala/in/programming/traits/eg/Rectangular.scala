@@ -1,4 +1,4 @@
-package scala.in.programming.`trait`.eg
+package scala.in.programming.traits.eg
 
 /**
   * @author loustler

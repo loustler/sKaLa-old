@@ -1,4 +1,4 @@
-package scala.in.programming.`trait`
+package scala.in.programming.traits
 
 /**
   * This trait have AnyRef as super class.
