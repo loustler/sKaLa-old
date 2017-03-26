@@ -36,37 +36,25 @@ The rich interface | The thin interface
 
 
 # Mixin
-`mix-in`하는 순서가 중요
-
-대강 말하면 
-
-> 가장 오른쪽에 있는 `trait`부터 적용
-
-e.g `class MacBook extends Computer with NoteBook with Apple`
-
-이라면 `Apple` 먼저 적용이 된다
-
-적용되는 순서는
-
-`Apple` => `NoteBook` => `Computer` 순서대로이다.
-
-`Apple`, `NoteBook`, `Computer`에 
-
-`print`라는 method가 있고,
-
-`abstract class Apple extends NoteBook`,
-
-`abstract class NoteBook extends Computer`
-
-와 같고 각 `print` method가 `super.print`를 호출한다면
-
-`MacBook`의 `print`가 실행되는 순서는
-
-`Apple` => `NoteBook` => `Computer` 
-
-되며 왼쪽부터 `print`를 실행한다.
+ [See this Wiki](What's%20difference%20between%20inheritance%20by%20trait%20in%20scala%20and%20multiple%20inheritance%20in%20another%20language.md)
 
 
+# To use or not to use
+
+1. 어떤 행위(`method`)를 재사용하지 않을 것이라면 class
+1. 서로 관련이 없는 class에서 같은 `method`를 여러 번 재사용해야 한다면 `trait`
+1. Java에서 Scala 내용을 상속한다면 `abstract class`
+	- Java에는 Scala의 `trait`과 유사한 개념이 없음
+	- 구현코드가 없는 `trait`은 Java의 `interface`로 만들어짐
+1. 컴파일한 바이트코드 형태로 배포할 예정
+	- 상속해서 사용한다면 추상 클래스르 더 많이 사용할 것
+	- 단 `trait`를 client에서 상속하지 않고 사용만 한다면 문제가 없음
+1. performance가 중요하다면
+	- class를 사용
+	- Java Runtime은 클래스 멤버에 대한 가상 메서드 호출(virtual method invocation)을 interface method invocation보다 더 빠르게 수행
+	- `trait`는 `interface`가 되기 때문에 성능상 부가비용이 발생함
+	- 단, `trait`이 성능상 병목(bottleneck), `class`로 변경할 경우 성능 문제를 해결할 수 있을 때만 사용
+1. 위의 내용으로도 판단이 안선다면 `trait`를 쓰는 게 더 좋음(언제든지 변경가능하기 때문)
 
 ----
 Written by @loustler at 19/03/17
