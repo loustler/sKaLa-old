@@ -28,6 +28,7 @@
 - [Class Hierarchy of Scala](Class%20Hierarchy%20of%20Scala.md)
 - [trait](trait.md)
 - [스칼라의 trait mix-in과 다른 언어의 다중상속의 차이](What's%20difference%20between%20inheritance%20by%20trait%20in%20scala%20and%20multiple%20inheritance%20in%20another%20language.md)
+- [package](Package.md)
 
 ## In wiki
 - [Scala에서의 관례](../../../wiki/Scala에서의-관례)
@@ -55,3 +56,4 @@
 - [Class Hierarchy of Scala](../../../wiki/Class-hierarchy-of-scala)
 - [trait](../../../wiki/trait)
 - [스칼라의 trait mix-in과 다른 언어의 다중상속의 차이](../../../wiki/What's-difference-between-inheritance-by-trait-in-scala-and-multiple-inheritance-in-another-language)
+- [package](../../../wiki/Package)
