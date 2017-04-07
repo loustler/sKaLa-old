@@ -4,7 +4,7 @@
  - Multiparadigm programming language [Wiki](https://ko.wikipedia.org/wiki/다중_패러다임_프로그래밍_언어)
     - Functional Programming(FP)
     - Object Oriented Programming(OOP)
- - Based on JVM
+ - Running on JVM(Java Virtual Machine)
  - To possible use Java
  - [GitHub](https://github.com/scala/scala)
  - [Official](http://www.scala-lang.org)
