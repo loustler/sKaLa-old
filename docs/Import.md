@@ -70,5 +70,39 @@ e.g
 	import p.n // == import p.{n}
 ```
 
+# Implicit Import
+
+package `scala`에는 흔히 사용하는 클래스 및 객체 그리고 표준 스칼라 라이브러리가 있음
+
+e.g
+
+```scala
+ List // scala.List
+ Predef // scala.Predef 암시적 형변환(Implicit Conversion) 포함
+ assert // scala.Predef.assert
+```
+
+> scala는 나중에 import한 패키지에 들어 있는 이름이 더 앞에서 import한 이름을 가리도록 `java.lang._` , `scala._`, `Predef._`을 특별하게 취급
+
+Sequence가 다음과 같다는 말
+
+1. `java.lang._`
+1. `scala._`
+1. `Predef._`
+
+이래서 `java.lang._`에 있는 것을 `scala._`이나 `Predef._`에 있는 것들이 가려버리는(명시적으로 사용하지 않으면 sequence가 늦은 것이 호출) 현상 발생
+
+e.g
+
+```scala
+
+  /* java.lang.StringBuilder??  scala.StringBuilder ?? */
+  StringBuilder // =>  scala.StringBuilder
+
+  java.lang.StringBuilder // java.lang.StringBuilder
+
+```
+
+
 ---
 Written by @loustler at 31/03/2017
