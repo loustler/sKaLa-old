@@ -30,6 +30,7 @@
 - [스칼라의 trait mix-in과 다른 언어의 다중상속의 차이](What's%20difference%20between%20inheritance%20by%20trait%20in%20scala%20and%20multiple%20inheritance%20in%20another%20language.md)
 - [package](Package.md)
 - [Import](Import.md)
+- [Scope of protection](Scope%20of%20protection.md)
 
 ## In wiki
 - [Scala에서의 관례](../../../wiki/Scala에서의-관례)
@@ -59,3 +60,4 @@
 - [스칼라의 trait mix-in과 다른 언어의 다중상속의 차이](../../../wiki/What's-difference-between-inheritance-by-trait-in-scala-and-multiple-inheritance-in-another-language)
 - [package](../../../wiki/Package)
 - [Import](../../../wiki/Import)
+- [Scope of protection](../../../wiki/Scope-of-protection)
