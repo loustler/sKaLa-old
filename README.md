@@ -10,7 +10,7 @@
  - [Official](http://www.scala-lang.org)
 
 # Environment
- - `2.12.1`
+ - `2.12.2`
  - `Java 8`
  - `ammonite-repl` [webPage](http://www.lihaoyi.com/Ammonite/)
  
@@ -22,6 +22,7 @@
  - `2.11.8`
  - `2.12.0`
  - `2.12.1`
+ - `2.12.2`
  
 # wiki
  [wiki](docs)
