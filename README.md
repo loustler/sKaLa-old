@@ -18,8 +18,6 @@
  - Learn scala
  
 # Environment for test on travis-ci 
- - `2.10.4`
- - `2.11.8`
  - `2.12.0`
  - `2.12.1`
  - `2.12.2`
