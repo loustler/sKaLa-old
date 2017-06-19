@@ -13,18 +13,18 @@
  - `2.12.2`
  - `Java 8`
  - `ammonite-repl` [webPage](http://www.lihaoyi.com/Ammonite/)
- 
+
 # Goal
  - Learn scala
- 
-# Environment for test on travis-ci 
+
+# Environment for test on travis-ci
  - `2.12.0`
  - `2.12.1`
  - `2.12.2`
- 
+
 # wiki
  [wiki](docs)
- 
+
 # Reference
  - Book
   - FPIS(Functional Programming In Scala) Paul Chiusano, Runar Bjarnason [Book Link](http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791185890180&orderClick=LAG&Kc=)
@@ -34,9 +34,9 @@
  - Tool
   - IntelliJ JetBrains [IDE](https://www.jetbrains.com/idea/)
   - ammonite-repl [GitHub](https://github.com/lihaoyi/Ammonite)
-  
+
  - Exercise
   - [scala-exercises](https://www.scala-exercises.org)
-  
+
  - Another Site
   - [coursera](https://www.coursera.org/learn/progfun1)
