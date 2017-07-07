@@ -1,4 +1,5 @@
 language: scala
+sudo: required
 scala:
   - 2.12.0
   - 2.12.1
@@ -11,13 +12,11 @@ os:
 matrix:
   include:
     - os: linux
-      dist: trusty
-      sudo: required
-      jdk: oraclejdk8
+      jdk: openjdk8
     - os: osx
       osx_image: xcode8.2
 
-before_script:
+before_install:
   - ./build/build.sh
 
 script:

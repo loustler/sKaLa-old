@@ -14,5 +14,5 @@ if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
 
 	/usr/libexec/java_home --failfast --version 1.8
 else
-	jdk_switcher use oraclejdk8
+	export TRAVIS_JDK_VERSION='openjdk8'
 fi
