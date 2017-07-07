@@ -7,17 +7,10 @@ scala:
 
 os:
   - linux
-  - osx
 
-matrix:
-  include:
-    - os: linux
-      jdk: openjdk8
-    - os: osx
-      osx_image: xcode8.2
-
-before_install:
-  - ./build/build.sh
+jdk:
+  - openjdk8
+  - oraclejdk8
 
 script:
   - sbt ++$TRAVIS_SCALA_VERSION -Dfile.encoding=UTF8 -J-XX:ReservedCodeCacheSize=256M -J-Xms1024M test
