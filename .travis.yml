@@ -17,10 +17,8 @@ matrix:
     - os: osx
       osx_image: xcode8.2
 
-before_install:
- - rvm install 2.3.5
-
 before_script:
- - ./build/build.sh
+  - ./build/build.sh
+
 script:
   - sbt ++$TRAVIS_SCALA_VERSION -Dfile.encoding=UTF8 -J-XX:ReservedCodeCacheSize=256M -J-Xms1024M test
