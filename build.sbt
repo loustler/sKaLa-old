@@ -1,7 +1,7 @@
 val groupOfScalaLang = SettingKey[String]("groupOfScalaLang")
 val prefixScala = SettingKey[String]("prefixScala")
 
-name := "sKaLa"
+name := "sKaLa-old"
 
 version := "1.0"
 

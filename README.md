@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/loustler/sKaLa.svg)](https://travis-ci.org/loustler/sKaLa)
+[![Build Status](https://travis-ci.org/loustler/sKaLa.svg)](https://travis-ci.org/loustler/sKaLa-old)
 
 # What is Scala
  - Multiparadigm programming language [Wiki](https://ko.wikipedia.org/wiki/다중_패러다임_프로그래밍_언어)
